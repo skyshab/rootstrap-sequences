@@ -24,12 +24,32 @@ use Hybrid\Contracts\Bootable;
 class RootstrapSequences extends Bootable {
 
     /**
+     * Store instance
+     */
+    private static $instance = null;
+
+    /**
      * Stores Resources Path
      *
      * @since 1.0.0
      * @var array
      */
     private $resources;
+
+    /**
+     * Get instance.
+     *
+     * Instantiate new instance if one has not already been created.
+     *
+     * @since 1.0.0
+     * @return object
+     */
+    public static function instance(){
+        if(self::$instance == null) {
+            self::$instance = new RootstrapSequences();
+        }
+        return self::$instance;
+    }
 
     /**
      * Load resources.
