@@ -21,7 +21,7 @@ use Hybrid\Contracts\Bootable;
  * @since  1.0.0
  * @access public
  */
-class RootstrapSequences implements Bootable {
+class Manager implements Bootable {
 
     /**
      * Store instance
