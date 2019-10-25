@@ -14,6 +14,7 @@
 namespace Rootstrap\Sequences;
 
 use Hybrid\Contracts\Bootable;
+use function Rootstrap\vendor_path;
 
 /**
  * Creates a new Rootstrap_Custom_Sections object.
