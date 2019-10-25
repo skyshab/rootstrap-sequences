@@ -1,7 +1,7 @@
 ////
-/// Customize Controls stylesheet.
+/// Rootstrap sequence styles
 ///
-/// This stylesheet imports all the styles needed for the customize controls panel.
+/// This stylesheet contains styles for the sequences navigation.
 ////
 
 /* hide  sections in the customizer panel */
@@ -21,7 +21,7 @@
     border-bottom: 1px solid #ddd;
 }
 
-.rootstrap-nav-link__sequence {
+.rootstrap-sequence {
 
     font-size: 20px;
     height: 1em;

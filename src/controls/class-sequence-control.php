@@ -2,7 +2,7 @@
 /**
  * Sequence Customize Control
  *
- * Custom control that adds sequence markup to the the customizer. 
+ * Custom control that adds sequence markup to the the customizer.
  *
  * @package   Rootstrap
  * @author    Sky Shabatura
@@ -26,70 +26,66 @@ class Sequence_Control extends WP_Customize_Control {
      *
      * @since 1.0.0
      * @var string
-     */ 
+     */
     public $type = 'rootstrap-sequence';
 
     /**
      * Stores current device id
-     * 
+     *
      * @since 1.0.0
      * @var string
-     */ 
+     */
     public $device;
 
     /**
      * Stores next section data
-     * 
+     *
      * @since 1.0.0
      * @var array
-     */ 
-    public $next;    
+     */
+    public $next;
 
     /**
      * Stores previous section data
-     * 
+     *
      * @since 1.0.0
      * @var array
-     */ 
+     */
     public $prev;
 
-   
+
     /**
      * Renders the content of our custom control
-     * 
+     *
      * @since 1.0.0
-     */ 
+     */
     public function render_content() {
 
         if( isset( $this->prev['section'] ) && $this->prev['section'] ) {
 
-            $class = 'rootstrap-nav-link rootstrap-nav-link__sequence rootstrap-nav-link__sequence--previous alignleft';
+            $class = 'rootstrap-sequence rootstrap-sequence--previous alignleft';
             $target_section = sprintf( 'data-section="%s"', $this->prev['section'] );
             $label = ( isset( $this->prev['label'] ) ) ? $this->prev['label'] : '';
-            $device = ( isset( $this->prev['device'] ) ) ? sprintf( 'data-device="%s"', $this->prev['device'] ) : '';    
 
-            printf( '<a href="#" class="%s" %s %s><span>%s</span></a>',
+            printf( '<a href="#" class="%s" %s><span>%s</span></a>',
                 $class,
-                $target_section, 
-                $device,
+                $target_section,
                 $label
             );
         }
 
         if( isset( $this->next['section'] ) && $this->next['section'] ) {
-            
-            $class = 'rootstrap-nav-link rootstrap-nav-link__sequence rootstrap-nav-link__sequence--next alignright';
+
+            $class = 'rootstrap-sequence rootstrap-sequence--next alignright';
             $target_section = sprintf( 'data-section="%s"', $this->next['section'] );
             $label = ( isset( $this->next['label'] ) ) ? $this->next['label'] : '';
-            $device = ( isset( $this->next['device'] ) ) ? sprintf( 'data-device="%s"', $this->next['device'] ) : '';    
-                
-            printf( '<a href="#" class="%s" %s %s><span>%s</span></a>',
+
+            printf( '<a href="#" class="%s" %s><span>%s</span></a>',
                 $class,
-                $target_section, 
-                $device,
+                $target_section,
                 $label
             );
         }
     }
 
- } 
+ }

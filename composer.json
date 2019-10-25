@@ -19,9 +19,7 @@
 		"psr-4" : {
 			"Rootstrap\\Sequences\\" : "src/"
 		},
-		"files" : [
-			"src/functions.php"
-		]
+		"files" : []
 	},
 	"require"     : {
 		"php" : ">=5.6"

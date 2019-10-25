@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* hide  sections in the customizer panel */
+.accordion-section[id*=rootstrap-section-hider] ~ .accordion-section {
+	height: 0;
+}
+.accordion-section[id*=rootstrap-section-hider] ~ .accordion-section .accordion-section-title {
+	display: none;
+}
+
+.customize-control-rootstrap-sequence {
+	box-sizing: border-box;
+	margin: -15px -12px 12px -12px;
+	width: calc(100% + 24px);
+	padding: 10px 8px;
+	background: white;
+	border-bottom: 1px solid #ddd;
+}
+
+.rootstrap-sequence {
+	font-size: 20px;
+	height: 1em;
+	position: relative;
+	text-decoration: none;
+	display: -webkit-box;
+	display: flex;
+	color: #a0a5aa;
+	-webkit-transition: color 0.5s ease-in-out;
+	transition: color 0.5s ease-in-out;
+}
+.rootstrap-sequence:hover {
+	color: #1F87B6;
+}
+.rootstrap-sequence--previous {
+	padding-left: 20px;
+}
+.rootstrap-sequence--next {
+	padding-right: 20px;
+}
+.rootstrap-sequence--previous:after, .rootstrap-sequence--next:before {
+	font: 400 1em dashicons;
+	position: absolute;
+	top: 50%;
+	margin-top: -0.5em;
+}
+.rootstrap-sequence--previous:focus, .rootstrap-sequence--next:focus {
+	outline: none;
+	box-shadow: none;
+}
+.rootstrap-sequence--previous:after {
+	content: "\F341";
+	left: 0;
+}
+.rootstrap-sequence--next:before {
+	content: "\F345";
+	right: 0;
+}
+.rootstrap-sequence span {
+	font-size: 13px;
+	vertical-align: middle;
+	line-height: 20px;
+}
