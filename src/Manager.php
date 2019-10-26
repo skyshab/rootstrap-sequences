@@ -40,7 +40,7 @@ class Manager implements Bootable {
      */
     public function boot() {
         // Store resources path
-        $this->resources = vendor_path() . '/rootstrap-sequences/dist';
+        $this->resources = vendor_path() . '/skyshab/rootstrap-sequences/dist';
         // Add custom control
         add_action( 'rootstrap/customize-register', [ $this, 'customControl' ] );
         // Register tabs
@@ -82,7 +82,7 @@ class Manager implements Bootable {
      * @since 1.0.0
      */
     public function customizeResources() {
-        wp_enqueue_script( 'rootstrap-customize-customize-controls', $this->resources . '/js/customize-controls.min.js', ['customize-controls'], null, true );
-        wp_enqueue_style( 'rootstrap-customize-customize-controls', $this->resources . '/css/customize-controls.min.css' );
+        wp_enqueue_script( 'rootstrap-customize-customize-controls', $this->resources . '/js/customize-controls.js', ['customize-controls'], null, true );
+        wp_enqueue_style( 'rootstrap-customize-customize-controls', $this->resources . '/css/customize-controls.css' );
     }
 }
