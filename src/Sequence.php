@@ -14,6 +14,7 @@
 namespace Rootstrap\Sequences;
 
 use Sequence_Control;
+use WP_Customize_Manager;
 
 /**
  * Creates a new sequence object.
@@ -24,11 +25,11 @@ use Sequence_Control;
 class Sequence {
 
     /**
-     * Stores wp_customize.
+     * Stores WP_Customize_Manager instance.
      *
      * @since  1.0.0
      * @access protected
-     * @var    array
+     * @var    object
      */
     public $customize;
 
@@ -86,10 +87,10 @@ class Sequence {
      * @param  array    $args
      * @return void
      */
-    public function __construct( $wp_customize, $args = [] ) {
+    public function __construct( WP_Customize_Manager $manager, array $args = [] ) {
 
         // store the customizer object
-        $this->customize = $wp_customize;
+        $this->customize = $manager;
 
         // set the object properties
         foreach( $args as $property => $value ) {

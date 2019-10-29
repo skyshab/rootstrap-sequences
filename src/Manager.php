@@ -1,6 +1,6 @@
 <?php
 /**
- * Rootstrap Sequences
+ * Rootstrap Sequences Manager
  *
  * This class handles all functionality for the extension.
  *
@@ -14,23 +14,16 @@
 namespace Rootstrap\Sequences;
 
 use Hybrid\Contracts\Bootable;
+use WP_Customize_Manager;
 use function Rootstrap\vendor_path;
 
 /**
- * Creates a new Rootstrap_Custom_Sections object.
+ * Rootstrap Sequences Manager Class.
  *
  * @since  1.0.0
  * @access public
  */
 class Manager implements Bootable {
-
-    /**
-     * Stores Resources Path
-     *
-     * @since 1.0.0
-     * @var array
-     */
-    private $resources;
 
     /**
      * Load resources.
@@ -39,12 +32,13 @@ class Manager implements Bootable {
      * @return object
      */
     public function boot() {
-        // Store resources path
-        $this->resources = vendor_path() . '/skyshab/rootstrap-sequences/dist';
+
         // Add custom control
         add_action( 'rootstrap/customize-register', [ $this, 'customControl' ] );
+
         // Register tabs
         add_action( 'rootstrap/customize-register/after', [ $this, 'sequences' ] );
+
         // Load customize control resources
         add_action( 'customize_controls_enqueue_scripts', [ $this, 'customizeResources' ] );
     }
@@ -55,7 +49,7 @@ class Manager implements Bootable {
      * @since 1.0.0
      * @return void
      */
-    public function customControl($manager) {
+    public function customControl( WP_Customize_Manager $manager) {
         require_once 'controls/class-sequence-control.php';
     }
 
@@ -65,24 +59,28 @@ class Manager implements Bootable {
      * @since 1.0.0
      * @return void
      */
-    public function sequences($manager) {
+    public function sequences( WP_Customize_Manager $manager) {
+
         // Filter for registering sequences
         $sequences = apply_filters( 'rootstrap/sequences', [] );
+
         // Create Sequences
         foreach( $sequences as $args ) {
-            $new_sequence = new Sequence($manager, $args);
+            $sequence = new Sequence($manager, $args);
         }
     }
 
     /**
      * Enqueue scripts and styles.
      *
-     *  If filters are applied defining file locations, load scripts and styles.
+     * If filters are applied defining file locations, load scripts and styles.
      *
      * @since 1.0.0
+     * @return void
      */
     public function customizeResources() {
-        wp_enqueue_script( 'rootstrap-customize-customize-controls', $this->resources . '/js/customize-controls.js', ['customize-controls'], null, true );
-        wp_enqueue_style( 'rootstrap-customize-customize-controls', $this->resources . '/css/customize-controls.css' );
+        $resources = vendor_path() . '/skyshab/rootstrap-sequences/dist';
+        wp_enqueue_script( 'rootstrap-customize-customize-controls', $resources . '/js/customize-controls.js', ['customize-controls'], null, true );
+        wp_enqueue_style( 'rootstrap-customize-customize-controls', $resources . '/css/customize-controls.css' );
     }
 }

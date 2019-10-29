@@ -1,7 +1,7 @@
 # Rootstrap Sequences
 
 Version: 1.0.0
-Released: 10/10/2019
+Released: 10/29/2019
 
 ## Description
 
@@ -9,16 +9,14 @@ This package extends Rootstrap to add "sequences" to the customizer panels. Thes
 
 ## Requirements
 
-* Rootstrap v1.1.0+
-* WordPress 5.0+
-* PHP 7.0+
+* WordPress 5.0+.
+* Hybrid Core 5.1+
+* Rootstrap 2.0+
 * [Composer](https://getcomposer.org/) for managing PHP dependencies.
 
 ## Features
 
-  Allows you to add a navigation bar with arrow navigation to the top of customizer sections.
-  Has options to show or hide the sections in the panel, reverse the order of the navigation, display
-  prev/next labels, and add a preview device trigger.
+Allows you to add a navigation bar with arrow navigation to the top of customizer sections. Has options to show or hide the sections in the panel, reverse the order of the navigation, display prev/next labels, and add a preview device trigger.
 
 ### Installation
 
@@ -29,8 +27,6 @@ Use the following command from your command line to install the package.
 ## Documentation
 
 Read the project wiki: https://github.com/skyshab/rootstrap-customize/wiki
-
-Quick screencast of devices, tabs and section sequences: https://youtu.be/htPsjFDnnXQ
 
 ## Copyright and License
 
