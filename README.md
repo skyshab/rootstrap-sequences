@@ -26,7 +26,7 @@ Use the following command from your command line to install the package.
 
 ## Documentation
 
-Read the project wiki: https://github.com/skyshab/rootstrap-customize/wiki
+Read the project wiki: https://github.com/skyshab/rootstrap-sequences/wiki
 
 ## Copyright and License
 
